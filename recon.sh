@@ -12,7 +12,7 @@ cat <<'BANNER'
  (A simple recon script inspired by Tomnomnom's bug bounty methodology)
 BANNER
 
-echo "####### Using wildacards ###########"
+echo "####### Using wildcards ###########"
 cat wildcards.txt | assetfinder -subs-only | anew domains
 echo "####### HTTProbe ###########"
 cat domains | httprobe -c 80 --prefer-https | anew hosts
