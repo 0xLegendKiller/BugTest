@@ -1,8 +1,12 @@
 # Method 1
+cat wildcards.txt | assetfinder -subs-only | anew domains
+amass enum -df wildcards.txt | anew domains
+subfinder -silent -dL wildcards.txt| anew domains
 
-amass enum -d target.com -o /filepath/subdomains.txt
 
-sort -u subdomains.txt | httprobe > /filepath/uniq.txt
+
+
+sort -u domains | httprobe > uniq.txt
 
 eyewitness --web -f uniq.txt -d /path_to_save_screenshots # optional , takes time, better grep for juicy domains and move forward
 
