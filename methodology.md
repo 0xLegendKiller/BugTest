@@ -58,7 +58,7 @@ done
 ## SSRF Test (Wayback + Burp Pro)
 
 ```bash
-cat wildcards.txt | gf ssrf | sort -u >> testblindssrf.txt
+cat wayback.txt | gf ssrf | sort -u >> testblindssrf.txt
 ```
 
 ```bash
