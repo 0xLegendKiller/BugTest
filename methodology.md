@@ -62,7 +62,7 @@ cat wayback.txt | gf ssrf | sort -u >> testblindssrf.txt
 ```
 
 ```bash
-qsreplace "burp_url" >> ssrfuzz.txt
+cat testblindssrf.txt | qsreplace "burp_url" >> ssrfuzz.txt
 
 ffuf -c -w ssrfuzz.txt -u FUZZ -t 200
 ```
