@@ -55,6 +55,18 @@ for I in $(ls); do
 done
 ```
 
+## SSRF Test (Wayback + Burp Pro)
+
+```bash
+cat wildcards.txt | gf ssrf | sort -u >> testblindssrf.txt
+```
+
+```bash
+qsreplace "burp_url" >> ssrfuzz.txt
+
+ffuf -c -w ssrfuzz.txt -u FUZZ -t 200
+```
+
 ## dalfox
 
 python3 ~/tools/ParamSpider/paramspider.py --domain google.com -o param.txt
