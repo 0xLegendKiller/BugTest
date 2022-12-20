@@ -17,6 +17,12 @@ subfinder -silent -dL wildcards.txt| anew domains
 for i in $(cat wildcards.txt);do bash ~/scripts/Sub-Drill.sh $i | anew domains;done 
 ```
 
+## Filter domain by level 
+
+```bash
+cat domains | dsieve -f 2
+```
+
 ## one liners and tools
 
 ```bash 
@@ -125,3 +131,18 @@ cat urls | gf sqli | tee -a sqli
 ```bash
 while read line;do sqlmap -u $line --parse-errors --current-db --invalid-logical --invalid-bignum --invalid-string --risk 3;done < sqli
 ```
+
+## Finding deadlinks
+```bash
+for i in $(cat uniq.txt);do deadlinks $i|anew dead_Links;done
+```
+
+```bash
+deadfinder file uniq.txt -o deadfinder.json
+```
+
+* Find valid links from wayback, cralwers, hawked etc 
+```bash
+cat wayback.txt| hakcheckurl | grep "200 http" | anew wayback200
+```
+
