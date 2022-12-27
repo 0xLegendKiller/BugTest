@@ -17,6 +17,11 @@ subfinder -silent -dL wildcards.txt| anew domains
 for i in $(cat wildcards.txt);do bash ~/scripts/Sub-Drill.sh $i | anew domains;done 
 ```
 
+* Extra cli methods for extra wide scope
+```bash
+curl "https://crt.sh/?q=yahoo&output=json" | jq -r ".[].common_name" | sed 's/\*.//g' | anew crt_domains
+```
+
 ## Port scan 
 
 ```bash
