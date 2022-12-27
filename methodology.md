@@ -141,6 +141,13 @@ for i in $(cat uniq.txt);do deadlinks $i|anew dead_Links;done
 deadfinder file uniq.txt -o deadfinder.json
 ```
 
+> https://www.deadlinkchecker.com/website-dead-link-checker.asp
+
+> https://ahrefs.com/broken-link-checker
+
+> https://brokenlinkcheck.com/broken-links.php
+
+
 * Find valid links from wayback, cralwers, hawked etc 
 ```bash
 cat wayback.txt| hakcheckurl | grep "200 http" | anew wayback200
