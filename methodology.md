@@ -17,6 +17,16 @@ subfinder -silent -dL wildcards.txt| anew domains
 for i in $(cat wildcards.txt);do bash ~/scripts/Sub-Drill.sh $i | anew domains;done 
 ```
 
+## Port scan 
+
+```bash
+while read l; do ip=$(dig +short $l|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"|head -1);echo "[+] '$l' => $ip";echo $ip >> ips.txt;done < domains.txt
+```
+
+```bash
+masscan -p1-65535 -iL ips.txt --max-rate 1800 -oG output.log
+```
+
 ## Filter domain by level 
 
 ```bash
