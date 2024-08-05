@@ -32,11 +32,17 @@ go install -v github.com/tomnomnom/anew@latest
 go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest
 go install -v github.com/xm1k3/cent@latest
 go install -v github.com/projectdiscovery/chaos-client/cmd/chaos@latest
+go install github.com/tomnomnom/waybackurls@latest
+go install github.com/lc/gau/v2/cmd/gau@latest
+
+# gau setup
+wget https://raw.githubusercontent.com/lc/gau/master/.gau.toml -O ~/.gau.toml
 
 # pdtm
 source ~/.bashrc
 pdtm -ia
 
 # Initialize cent and install templates
+cd ~
 cent init
 cent -p cent-nuclei-templates -k
