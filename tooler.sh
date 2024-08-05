@@ -3,7 +3,7 @@
 # Change to home directory
 cd ~
 mkdir ~/tools/ ~/.gf
-cd ~/tools && git clone https://github.com/tomnomnom/gf.git && cp  -r examples/ ~/.gf/ && cd ~
+cd ~/tools && git clone https://github.com/tomnomnom/gf.git && cp  -r gf/examples/ ~/.gf/ && cd ~
 # Download and extract Go
 curl -OL https://go.dev/dl/go1.21.0.linux-amd64.tar.gz
 sudo tar -C /usr/local -xvf go1.21.0.linux-amd64.tar.gz
