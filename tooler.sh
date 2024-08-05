@@ -31,6 +31,11 @@ go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
 go install -v github.com/tomnomnom/anew@latest
 go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest
 go install -v github.com/xm1k3/cent@latest
+go install -v github.com/projectdiscovery/chaos-client/cmd/chaos@latest
+
+# pdtm
+source ~/.bashrc
+pdtm -ia
 
 # Initialize cent and install templates
 cent init
