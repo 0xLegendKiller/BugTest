@@ -72,6 +72,9 @@ python3 ~/tools/smuggler/smuggler.py -u "https://google.com" -m GET -q
 python3 ~/tools/mass-bounty/CRLF-Injection-Scanner/crlf_scan.py -i uniq.txt
 ```
 
+```bash
+for url in $(cat hosts); do curl -x http://127.0.0.1:8080 -k -L "$url"; done
+```
 
 * CVE-2020-3452
 ```bash
